@@ -89,8 +89,8 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 echo "-=- push Docker image -=-"
-                withDockerRegistry([ credentialsId: "werdar-wedartg-uiny67-adsuja0-12njkn3", url: "" ]) {
-                    sh "docker push restalion/python-jenkins-pipeline:0.1"
+                withDockerRegistry([ credentialsId: "33c19b10-99f1-4d36-a37a-023525061d1d", url: "" ]) {
+                    sh "docker push buluma/python-jenkins-pipeline:0.1"
                 }
                 
                 //sh "mvn docker:push"
