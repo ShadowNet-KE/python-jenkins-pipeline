@@ -47,14 +47,14 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 echo "-=- build Docker image -=-"
-                sh "docker build -t restalion/python-jenkins-pipeline:0.1 ."
+                sh "docker build -t buluma/python-jenkins-pipeline:0.1 ."
             }
         }
 
         stage('Run Docker image') {
             steps {
                 echo "-=- run Docker image -=-"
-                sh "docker run --name python-jenkins-pipeline --detach --rm --network ci -p 5001:5000 restalion/python-jenkins-pipeline:0.1"
+                sh "docker run --name python-jenkins-pipeline --detach --rm --network ci -p 5001:5000 buluma/python-jenkins-pipeline:0.1"
             }
         }
 
@@ -86,16 +86,16 @@ pipeline {
             }
         }
 
-        stage('Push Docker image') {
-            steps {
-                echo "-=- push Docker image -=-"
-                withDockerRegistry([ credentialsId: "33c19b10-99f1-4d36-a37a-023525061d1d", url: "" ]) {
-                    sh "docker push buluma/python-jenkins-pipeline:0.1"
-                }
+//         stage('Push Docker image') {
+//             steps {
+//                 echo "-=- push Docker image -=-"
+//                 withDockerRegistry([ credentialsId: "33c19b10-99f1-4d36-a37a-023525061d1d", url: "" ]) {
+//                     sh "docker push buluma/python-jenkins-pipeline:0.1"
+//                 }
                 
-                //sh "mvn docker:push"
-            }
-        }
+//                 //sh "mvn docker:push"
+//             }
+//         }
     }
 
 //     post {
