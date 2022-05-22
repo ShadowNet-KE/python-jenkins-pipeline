@@ -98,10 +98,10 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo "-=- remove deployment -=-"
-            sh "docker stop python-jenkins-pipeline"
-        }
-    }
+//     post {
+//         always {
+//             echo "-=- remove deployment -=-"
+//             sh "docker stop python-jenkins-pipeline"
+//         }
+//     }
 }
